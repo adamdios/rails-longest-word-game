@@ -1,0 +1,15 @@
+<h1>New game</h1>
+
+<% @letters %>
+
+<ul>
+<% @letters.each do |letter| %>
+  <li class="list-inline"><%= letter.capitalize %></li>
+<% end %>
+</ul>
+
+<form action="/score" method="post" class="form">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <input type="text" name="word" class="form-control">
+  <input type="submit" value="Play" class="btn">
+</form>
